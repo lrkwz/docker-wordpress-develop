@@ -1,0 +1,67 @@
+application:
+  image: busybox
+  volumes:
+  - ./codebase:/var/www/html
+  - /var/lib/mysql
+  tty: true
+
+db:
+  image: mariadb:5
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: wordpress
+    MYSQL_USER: wordpress
+    MYSQL_PASSWORD: wordpress
+  ports:
+  - 3306:3306
+  volumes:
+    - ./scripts/db:/docker-entrypoint-initdb.d
+#    - ./logs/mysql:/var/log
+  volumes_from:
+    - application
+
+php:
+  build: provision/php-fpm
+  ports:
+  - 9000:9000
+  volumes:
+  - ./logs/php:/var/log/php5
+  - ./provision/php-fpm/wp-config-local.php:/var/www/html/wp-config-local.php
+  volumes_from:
+  - application
+  links:
+  - db
+  - mail
+
+nginx:
+  build: provision/nginx
+  ports:
+  - 8080:80
+  links:
+  - php
+  volumes_from:
+  - application
+  volumes:
+  - ./logs/nginx/:/var/log/nginx
+
+varnish:
+  image: tutum/varnish:3.0
+  ports:
+  - 80:80
+  links:
+  - nginx
+  - php
+  environment:
+    CONTENT: "-f /etc/varnish/default.vcl"
+    BACKEND_PORT_80_TCP_ADDR: "nginx"
+    BACKEND_ENV_PORT: 80
+    VARNISH_BACKEND_IP: "nginx"
+    VARNISH_BACKEND_PORT: 80
+  volumes:
+  - ./provision/varnish/default.vcl:/etc/varnish/default.vcl
+  - ./logs/varnish:/var/log/varnish
+
+mail:
+  image: munkyboy/fakesmtp
+  volumes:
+  - ./logs/mail:/var/mail
