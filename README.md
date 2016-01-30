@@ -8,8 +8,9 @@ Può essere utilizzato per lo sviluppo in locale utilizzando [Docker](http://www
 
 Prerequisiti
 ------------
-
-
+1. Installa Docker seguendo le instruzioni che trovi sul [sito](https://docs.docker.com/engine/installation/) (verifica se dovesse essere necessario aggiungere il tuo utente al gruppo docker per non dovere utilizzare root)
+2. Installa [docker-compose](https://docs.docker.com/compose/install/)
+3. Un repository Subversion (eventualmente locale) per il tuo progetto
 
 Setup
 -----
@@ -19,15 +20,11 @@ Setup
 3. Apri il browser a accedi a [http://localhost](http://localhost)
 4. Segui il normale setup di Wordpress
 5. Configura il plugin Varnish impostando come indirizzo del server Varnish 127.17.0.1 e secret ```b1857651-b6b4-41a7-8979-1834ae05308b```
- 
 
 Usage
 -----
-
-1. Installa Docker seguendo le instruzioni che trovi sul [sito](https://docs.docker.com/engine/installation/) (verifica se dovesse essere necessario aggiungere il tuo utente al gruppo docker per non dovere utilizzare root)
-2. Installa [docker-compose](https://docs.docker.com/compose/install/)
-3. Esegui il comando ```docker-compose build``` e attendi che le immagini necessarie vangano scaricate (non ti preoccupare questo avviene solo la prima volta)
-4. Esegui il comando  ```docker-compose up``` (puoi aggiungere il parametro```-d``` per _demonizzare_ i contenitori)
+1. Esegui il comando ```docker-compose build``` e attendi che le immagini necessarie vangano scaricate (non ti preoccupare questo avviene solo la prima volta)
+2. Esegui il comando  ```docker-compose up``` (puoi aggiungere il parametro```-d``` per _demonizzare_ i contenitori)
 
 Comandi di base
 ---------------
