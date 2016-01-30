@@ -1,1 +1,11 @@
 .svn
+codebase/wp-config-local.php
+codebase/wp-content/plugins/akismet/
+codebase/wp-content/plugins/wordpress-seo/
+codebase/wp-content/themes/twentyeleven/
+codebase/wp-content/themes/twentyfifteen/
+codebase/wp-content/themes/twentyfourteen/
+codebase/wp-content/themes/twentythirteen/
+codebase/wp-content/themes/twentytwelve/
+codebase/wp/
+logs
