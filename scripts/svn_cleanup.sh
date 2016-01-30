@@ -22,6 +22,15 @@ svn pd svn:externals $PROJROOT/codebase/wp-content/plugins
 svn pd svn:externals $PROJROOT/codebase/wp-content/themes
 
 rm -rf $PROJROOT/codebase/wp-content/plugins/wp-varnish
+rm -rf $PROJROOT/codebase/wp-content/themes/twentythirteen
+rm -rf $PROJROOT/codebase/wp-content/themes/twentytwelve
+rm -rf $PROJROOT/codebase/wp-content/themes/twentyfourteen
+rm -rf $PROJROOT/codebase/wp
+rm -rf $PROJROOT/codebase/wp/wp-content/plugins/akismet
+rm -rf $PROJROOT/codebase/wp-content/plugins/wordpress-seo
+rm -rf $PROJROOT/codebase/wp-content/plugins/akismet
+rm -rf $PROJROOT/codebase/wp-content/themes/twentyeleven
+rm -rf $PROJROOT/codebase/wp-content/themes/twentyfifteen
 
 svn rm --keep-local $PROJROOT/codebase
 svn rm --keep-local $PROJROOT/html
