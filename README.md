@@ -27,14 +27,14 @@ Per esempio:
     $ docker-compose ps
     Name                      Command               State               Ports                 
     ---------------------------------------------------------------------------------------------
-    moreit_application_1   /bin/bash                        Up                                    
-    moreit_db_1            /docker-entrypoint.sh mysqld     Up      0.0.0.0:3306->3306/tcp                      
-    moreit_mail_1          /bin/sh -c java -jar /opt/ ...   Up      25/tcp                        
-    moreit_nginx_1         nginx                            Up      443/tcp, 0.0.0.0:8080->80/tcp
-    moreit_php_1           php5-fpm -F                      Up      0.0.0.0:9000->9000/tcp        
-    moreit_varnish_1       /run.sh                          Up      0.0.0.0:80->80/tcp            
+    dockerwordpressdevelop_application_1   /bin/bash                        Up                                    
+    dockerwordpressdevelop_db_1            /docker-entrypoint.sh mysqld     Up      0.0.0.0:3306->3306/tcp                      
+    dockerwordpressdevelop_mail_1          /bin/sh -c java -jar /opt/ ...   Up      25/tcp                        
+    dockerwordpressdevelop_nginx_1         nginx                            Up      443/tcp, 0.0.0.0:8080->80/tcp
+    dockerwordpressdevelop_php_1           php5-fpm -F                      Up      0.0.0.0:9000->9000/tcp        
+    dockerwordpressdevelop_varnish_1       /run.sh                          Up      0.0.0.0:80->80/tcp            
 
-indica che il contenitore moreit_application_1 e attivo e non espone alcuna porta mentre moreit_db_1 espone la porta 3306/tcp verso gli altri contenitori e la stessa porta è anche bounded su localhost (quindi ad esempio puoi usare un qualunque client mysql per interrogare il database).
+indica che il contenitore dockerwordpressdevelop_application_1 e attivo e non espone alcuna porta mentre dockerwordpressdevelop_db_1 espone la porta 3306/tcp verso gli altri contenitori e la stessa porta è anche bounded su localhost (quindi ad esempio puoi usare un qualunque client mysql per interrogare il database).
 
 Come sono composti e cosa contengono questi contenitori?
 --------------------------------------------------------
