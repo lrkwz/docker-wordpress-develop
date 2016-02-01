@@ -11,7 +11,7 @@ PROJROOT=`cd "$CURDIR"; pwd`
 
 WP_VERSION=4.4.1
 
-echo $PROJROOT
+svn add README.md
 svn add $PROJROOT/codebase
 svn add $PROJROOT/html
 svn add $PROJROOT/provision
@@ -24,15 +24,17 @@ svn ps svn:ignore "uploads" $PROJROOT/codebase/wp-content
 
 svn ps svn:externals "wp http://core.svn.wordpress.org/tags/$WP_VERSION" $PROJROOT/codebase
 svn ps svn:externals "akismet http://plugins.svn.wordpress.org/akismet/tags/3.0.4
- wordpress-seo http://plugins.svn.wordpress.org/wordpress-seo/tags/3.0.7" $PROJROOT/codebase/wp-content/plugins
+wordpress-seo http://plugins.svn.wordpress.org/wordpress-seo/tags/3.0.7
+google-analytics-for-wordpress http://plugins.svn.wordpress.org/google-analytics-for-wordpress/tags/5.4.6 " $PROJROOT/codebase/wp-content/plugins
 svn ps svn:externals "twentyeleven http://core.svn.wordpress.org/tags/$WP_VERSION/wp-content/themes/twentyeleven
 twentytwelve http://core.svn.wordpress.org/tags/$WP_VERSION/wp-content/themes/twentytwelve
 twentythirteen http://core.svn.wordpress.org/tags/$WP_VERSION/wp-content/themes/twentythirteen
 twentyfourteen http://core.svn.wordpress.org/tags/$WP_VERSION/wp-content/themes/twentyfourteen
 twentyfifteen http://core.svn.wordpress.org/tags/$WP_VERSION/wp-content/themes/twentyfifteen" $PROJROOT/codebase/wp-content/themes
 
-cd $PROJROOT/codebase/wp-content/plugins
-git clone https://github.com/pkhamre/wp-varnish.git
+git clone https://github.com/pkhamre/wp-varnish.git $PROJROOT/codebase/wp-content/plugins/wp-varnish
+
+svn add $PROJROOT/codebase/wp-content/plugins/wp-varnish
 
 svn commit -m "First setup"
 svn up
