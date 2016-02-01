@@ -39,3 +39,5 @@ svn rm --keep-local $PROJROOT/scripts
 svn rm --keep-local $PROJROOT/docker-compose.yml
 
 svn commit -m "Clean up"
+
+rm -rf $PROJROOT/logs
