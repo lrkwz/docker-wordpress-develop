@@ -19,7 +19,7 @@ Setup
 2. Esegui lo script ```scripts/sv_setup.sh```
 3. Apri il browser a accedi a [http://localhost](http://localhost)
 4. Segui il normale setup di Wordpress
-5. Configura il plugin Varnish impostando come indirizzo del server Varnish 127.17.0.1 e secret ```b1857651-b6b4-41a7-8979-1834ae05308b```
+5. [Configura il plugin Varnish](http://localhost/wp/wp-admin/admin.php?page=WPVarnish) impostando come indirizzo del server Varnish ```127.17.0.1``` e secret ```b1857651-b6b4-41a7-8979-1834ae05308b```; non dimenticare di impostare la versione di varnish a ```3```.
 
 Usage
 -----
