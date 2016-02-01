@@ -1,17 +1,30 @@
 Dockerized Wordpress
 ====================
 
-Questo è un tipico skeletro di semplice applicazione Wordpress.
+Questo è un tipico skeletro di semplice applicazione Wordpress pensato per utilizzare dei contenitori docker per la configurazione dell'ambiente e sfruttare le versioni di Wordpress e dei suoi principali componenti (temi e plugin)  prelevati direttamente dai repository svn.
+Gli script presenti nella directory ```scripts``` sono progettati per inizializzare la struttura con i riferimenti ```svn:externals``` ai repository ufficiali di wordpress.
 
-Può essere utilizzato per lo sviluppo in locale utilizzando Docker [1] come segue.
+Può essere utilizzato per lo sviluppo in locale utilizzando [Docker](http://www.docker.com) come segue.
+
+Prerequisiti
+------------
+1. Installa Docker seguendo le instruzioni che trovi sul [sito](https://docs.docker.com/engine/installation/) (verifica se dovesse essere necessario aggiungere il tuo utente al gruppo docker per non dovere utilizzare root)
+2. Installa [docker-compose](https://docs.docker.com/compose/install/)
+3. Un repository Subversion (eventualmente locale) per il tuo progetto
 
 Setup
 -----
+1. Clona il progetto
+2. Aggiungi il progetto clonato ad un tuo repository svn
+2. Esegui lo script ```scripts/sv_setup.sh```
+3. Apri il browser a accedi a [http://localhost](http://localhost)
+4. Segui il normale setup di Wordpress
+5. Configura il plugin Varnish impostando come indirizzo del server Varnish 127.17.0.1 e secret ```b1857651-b6b4-41a7-8979-1834ae05308b```
 
-1. Installa Docker seguendo le instruzioni che trovi sul sito [2] (verifica se dovesse essere necessario aggiungere il tuo utente al gruppo docker per non dovere utilizzare root)
-2. Installa docker-compose [3]
-3. Esegui il comando ```docker-compose build``` e attendi che le immagini necessarie vangano scaricate (non ti preoccupare questo avviene solo la prima volta)
-4. Esegui il comando  ```docker-compose up``` (puoi aggiungere il parametro```-d``` per _demonizzare_ i contenitori)
+Usage
+-----
+1. Esegui il comando ```docker-compose build``` e attendi che le immagini necessarie vangano scaricate (non ti preoccupare questo avviene solo la prima volta)
+2. Esegui il comando  ```docker-compose up``` (puoi aggiungere il parametro```-d``` per _demonizzare_ i contenitori)
 
 Comandi di base
 ---------------
@@ -70,7 +83,3 @@ Installa una immagine standard contenente varnish e un file default.vcl ottenuto
 
 Utilizza il contenitore nginx.
 Espone la porta http://localhost
-
-[1] http://www.docker.com
-[2] https://docs.docker.com/engine/installation/
-[3] https://docs.docker.com/compose/install/
