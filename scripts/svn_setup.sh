@@ -11,6 +11,7 @@ PROJROOT=`cd "$CURDIR"; pwd`
 
 WP_VERSION=4.4.1
 
+svn update
 svn add README.md
 svn add $PROJROOT/codebase
 svn add $PROJROOT/html
@@ -37,6 +38,6 @@ git clone https://github.com/pkhamre/wp-varnish.git $PROJROOT/codebase/wp-conten
 svn add $PROJROOT/codebase/wp-content/plugins/wp-varnish
 
 svn commit -m "First setup"
-svn up
+svn update
 
 docker-compose build
