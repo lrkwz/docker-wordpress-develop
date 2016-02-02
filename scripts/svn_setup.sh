@@ -14,6 +14,12 @@ WP_VERSION=4.4.1
 svn update
 svn add README.md
 svn add $PROJROOT/codebase
+svn add $PROJROOT/codebase/wp-content
+mkdir -p $PROJROOT/codebase/wp-content/plugins
+mkdir -p $PROJROOT/codebase/wp-content/themes
+svn add $PROJROOT/codebase/wp-content/plugins
+svn add $PROJROOT/codebase/wp-content/themes
+mkdir -p $PROJROOT/html
 svn add $PROJROOT/html
 svn add $PROJROOT/provision
 svn add $PROJROOT/scripts
