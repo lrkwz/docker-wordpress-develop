@@ -1,24 +1,10 @@
-##
-import std; // import logging
-##BACKEND
-probe std_probe {
-	.url = "/index.html";
-	.interval = 5s;
-	.timeout = 1s;
-	.window = 5;
-	.threshold = 3;
-}
-
-backend default {
-	.host = "nginx";
-	.port = "80";
-	.probe = std_probe;
-}
-
+## START TEMPLATE
 acl purge {
 	"localhost";
-	"php";
-	"172.17.0.1";
+	"10.255.255.20";
+	"10.255.255.6";
+	"85.159.147.110";
+	"85.159.147.27";
 }
 
 sub vcl_recv {
@@ -28,6 +14,8 @@ sub vcl_recv {
 
 	# Normalize the header, remove the port
 	set req.http.host = regsub(req.http.host, ":[0-9]+", "");
+
+	#set req.backend = more_prod;
 
 	set req.http.X-Forwarded-For = client.ip;
 
@@ -69,16 +57,16 @@ sub vcl_recv {
 		return (pass);
 	}
 
-# Magento
-	if ( req.url ~ "^\/(index\.php\/admin|checkout|customer|sales\/order)\/" ) {
-		return (pass);
-	}
 # wordpress
 	if (req.url ~ "wp-(login|admin|signup)|login|preview|admin-ajax.php"){
 		return (pass);
 	}
 
 	if (req.http.Cookie) {
+		if (req.http.cookie !~ "PHPSESSID" && req.http.cookie ~ "REMEMBERME") {
+			return(pass);
+		}
+
 		if (req.http.Cookie ~ "wordpress_logged_in_" || req.http.Cookie ~ "woocommerce_" || req.http.Cookie ~ "wp_postpass" || req.http.Cookie ~ "DokuWiki"){
 			return (pass);
 		} else {
@@ -191,3 +179,12 @@ sub vcl_miss {
 		error 204 "Purged (Not in cache)";
 	}
 }
+
+sub vcl_error {
+    if (obj.status == 750) {
+        set obj.http.Location = obj.response;
+        set obj.status = 301;
+        return(deliver);
+    }
+}
+## END TEMPLATE

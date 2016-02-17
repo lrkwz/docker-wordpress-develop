@@ -9,7 +9,7 @@
 CURDIR=`dirname $0`/..
 PROJROOT=`cd "$CURDIR"; pwd`
 
-WP_VERSION=4.4.1
+WP_VERSION=4.4.2
 
 svn update
 svn add README.md
