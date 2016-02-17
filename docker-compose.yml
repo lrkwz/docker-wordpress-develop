@@ -43,9 +43,10 @@ nginx:
   - application
   volumes:
   - ./logs/nginx/:/var/log/nginx
+  - ./provision/nginx/snippets:/etc/nginx/snippets
 
 varnish:
-  image: tutum/varnish:3.0
+  build: provision/varnish
   ports:
   - 80:80
   links:
@@ -53,7 +54,7 @@ varnish:
   environment:
     #CONTENT: "-b backend:80"
     #CONTENT: "-f /etc/varnish/simple.vcl"
-    CONTENT: "-f /etc/varnish/default.vcl"
+    CONTENT: "-f /etc/varnish/default_3.0.vcl"
     BACKEND_PORT: 80
     VARNISH_OPTS: -T 0.0.0.0:6082 -p esi_syntax=0x2 -p cli_buffer=16384
   volumes:
