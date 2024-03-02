@@ -1,0 +1,102 @@
+repo_name: lrkwz/docker-wordpress-develop
+report_id: 6f66ccf44b49362b73bdb96f1d5bd3b3
+version: 0.1
+repo_type: Public
+timestamp: '2024-02-29T18:01:09+00:00'
+requested_by: lrkwz
+provider: github
+branch: master
+detected_tools_count: 8
+tools:
+- name: PHP
+  description: A popular general-purpose scripting language that is especially suited
+    to web development
+  website_url: http://www.php.net/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/991/hwUcGZ41_400x400.jpg
+  detection_source_url: https://github.com/lrkwz/docker-wordpress-develop
+  detection_source: Repo Metadata
+- name: SQL
+  description: It is a domain-specific language used in programming
+  website_url: https://en.wikipedia.org/wiki/SQL
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/2271/default_068d33483bba6b81ee13fbd4dc7aab9780896a54.png
+  detection_source_url: https://github.com/lrkwz/docker-wordpress-develop/blob/master/scripts/db/99_create_admin.sql
+  detection_source: scripts/db/99_create_admin.sql
+  last_updated_by: Luca Orlandi
+  last_updated_on: 2016-02-01 16:56:01.000000000 Z
+- name: Docker
+  description: Enterprise Container Platform for High-Velocity Innovation.
+  website_url: https://www.docker.com/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Virtual Machine Platforms & Containers
+  image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source_url: https://github.com/lrkwz/docker-wordpress-develop
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/lrkwz/docker-wordpress-develop
+  detection_source: Repo Metadata
+- name: NGINX
+  description: A high performance free open source web server powering busiest sites
+    on the Internet.
+  website_url: http://nginx.org
+  open_source: false
+  hosted_saas: false
+  category: Application Hosting
+  sub_category: Web Servers
+  image_url: https://img.stackshare.io/service/1052/YMxUfyWf.png
+  detection_source_url: https://github.com/lrkwz/docker-wordpress-develop/blob/master/provision/nginx/nginx.conf
+  detection_source: provision/nginx/nginx.conf
+  last_updated_by: Luca Orlandi
+  last_updated_on: 2016-01-30 09:44:07.000000000 Z
+- name: PhpSpec
+  description: A  toolset for behavior driven development
+  website_url: http://www.phpspec.net/en/latest/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Testing Frameworks
+  image_url: https://img.stackshare.io/service/3502/6b9dfb07681dee602dbdf75d9393f07c_400x400.png
+  detection_source_url: https://github.com/lrkwz/docker-wordpress-develop/blob/master/provision/php-fpm/Dockerfile
+  detection_source: provision/php-fpm/Dockerfile
+  last_updated_by: Luca Orlandi
+  last_updated_on: 2016-01-30 09:44:07.000000000 Z
+- name: Debian
+  description: The Universal Operating System
+  website_url: https://www.debian.org/
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Operating Systems
+  image_url: https://img.stackshare.io/service/1656/vd4gAekh.png
+  detection_source_url: https://github.com/lrkwz/docker-wordpress-develop/blob/master/provision/nginx/Dockerfile
+  detection_source: provision/nginx/Dockerfile
+  last_updated_by: Luca Orlandi
+  last_updated_on: 2016-01-30 09:44:07.000000000 Z
+- name: Shell
+  description: A shell is a text-based terminal, used for manipulating programs and
+    files. Shell scripts typically manage program execution.
+  website_url: https://en.wikipedia.org/wiki/Shell_script
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png
+  detection_source_url: https://github.com/lrkwz/docker-wordpress-develop
+  detection_source: Repo Metadata
